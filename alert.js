@@ -65,7 +65,7 @@ const clearModalFields = () => {
 
 const addAlert = (name, price) => {
   if (!alertFieldsValid(name, price)) {
-    alert('Please make sure both fields are not empty.');
+    alert('Please make sure both fields are not empty. Only a-z A-Z 0-9 and space allowed.');
     return;
   };
 
