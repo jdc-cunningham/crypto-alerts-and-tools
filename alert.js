@@ -155,6 +155,6 @@ if (Notification.permission !== "granted") {
   const allowNotificationsBtn = document.getElementById('allow-alerts-btn');
   allowNotificationsBtn.classList = '';
   allowNotificationsBtn.addEventListener('click', () => {
-    notify('');
+    notify('Thanks for enabling desktop notifications.');
   });
 }
