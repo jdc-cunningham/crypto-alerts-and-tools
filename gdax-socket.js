@@ -28,6 +28,8 @@ const say = (msg) => {
   const utterance = new SpeechSynthesisUtterance(msg);
   utterance.voice = voices[4]; // can dump voices to pick
   speechSynthesis.speak(utterance);
+
+  activeSayPrice = '';
 }
 
 // get voices on load
