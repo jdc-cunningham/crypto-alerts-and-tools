@@ -4,6 +4,8 @@
 This is a basic crypto alerting tool for prices. It will alert you by desktop notification and speech.
 The speech will not fire until you interact with the page.
 
+This uses a GDAX websocket connection to get the ticker prices for comparison against your set alerts.
+
 See this [video](https://www.youtube.com/watch?v=Ejyw6AEGXwk) of it in action
 
 [View live page](https://jdc-cunningham.github.io/crypto-alerts-and-tools/)
