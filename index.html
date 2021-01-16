@@ -6,18 +6,19 @@
   <link rel="stylesheet" href="css-reset.css">
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="alerts.css">
-  <title>Document</title>
+  <title>Crypto alerts and tools</title>
 </head>
 <body>
   <div id="app">
     <div id="app__left">
       <div id="app__left-alerts">
         <h2>Alerts</h2>
-        <div id="app__left-alerts-display"></div>
-        <div id="app__left-alerts-modal" class="show">
+        <div id="app__left-alerts-display">Checking for alerts...</div>
+        <div id="app__left-alerts-modal">
           <button type="button" id="alerts-modal-close-btn">x</button>
           <h2>Specify name of alert and price</h2>
-          <input type="text" placeholder="name" id="alerts-modal-name"/>
+          <p>note: cents are ignored</p>
+          <input type="text" placeholder="name" id="alerts-modal-name" style="text-transform: uppercase;"/>
           <input type="number" placeholder="amount" id="alerts-modal-price"/>
           <button id="alerts-modal-add-btn" type="button">add</button>
         </div>

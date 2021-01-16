@@ -15,7 +15,7 @@
   display: flex;
 }
 
-#app__left-alerts-modal h2 {
+#app__left-alerts-modal h2, #app__left-alerts-modal p {
   margin-bottom: 5px;
   color: white;
 }
@@ -47,4 +47,20 @@
 
 #app__left-alerts-display {
   padding-top: 5px;
+}
+
+#add-alert-btn {
+  margin-top: 5px;
+}
+
+.alert-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.alert-row button {
+  margin-left: 5px;
+  font-size: 12px;
 }
