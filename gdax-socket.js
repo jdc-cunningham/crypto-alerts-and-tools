@@ -14,25 +14,26 @@ const subscribeJson = {
   ]
 };
 const priceDisplay = document.getElementById('app__right-ticker-prices');
-let voiceSet = false;
+let voices;
+let activeSayPrice = ""; // this is because of multiple ticker values eg. runs 3 times in a row
 
 // https://mdn.github.io/web-speech-api/speak-easy-synthesis/
 // note speech will not work until user interacts with the page like clicking on allow notifications
 // the interaction is the clicking of the page itself, the allow notification button is for setting the notifications
 const say = (msg) => {
-  if (!voiceSet) {
-    // wait till ready
-    window.speechSynthesis.onvoiceschanged = function() {
-      const synth = window.speechSynthesis;
-      const voices = synth.getVoices();
-      const utterance = new SpeechSynthesisUtterance(msg);
-      utterance.voice = voices[4]; // can dump voices to pick
-      speechSynthesis.speak(utterance);
-    };
-  } else {
-    const utterance = new SpeechSynthesisUtterance(msg);
-    speechSynthesis.speak(utterance);
+  if (activeSayPrice === msg) {
+    return;
   }
+
+  const utterance = new SpeechSynthesisUtterance(msg);
+  utterance.voice = voices[4]; // can dump voices to pick
+  speechSynthesis.speak(utterance);
+}
+
+// get voices on load
+window.speechSynthesis.onvoiceschanged = function() {
+  const synth = window.speechSynthesis;
+  voices = synth.getVoices();
 }
 
 // Desktop browser notifications from MDN docs
@@ -69,9 +70,9 @@ const checkAlert = (price) => {
   if (entries && entries.length) {
     entries.forEach((entry, index) => { // full loop but not a huge data set
       if (entry.price ===  parseInt(price.split(',').join(''))) { // this is nasty
-        console.log('run say');
         notify(`BTC price alert $${price}`);
         say(`BTC price alert $${price}`);
+        activeSayPrice = `BTC price alert $${price}`;
         entries.splice(index, 1);
       }
     });
