@@ -29,7 +29,9 @@ const say = (msg) => {
   utterance.voice = voices[4]; // can dump voices to pick
   speechSynthesis.speak(utterance);
 
-  activeSayPrice = '';
+  setTimeout(() => {
+    activeSayPrice = '';
+  }, 1500);
 }
 
 // get voices on load
