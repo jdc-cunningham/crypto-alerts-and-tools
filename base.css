@@ -34,3 +34,7 @@ button {
 .hidden {
   display: none;
 }
+
+#app__left-gains-calc {
+  margin-top: 50px;
+}
