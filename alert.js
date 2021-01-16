@@ -102,7 +102,7 @@ const addAlert = (name, price) => {
 
 // https://stackoverflow.com/questions/13236651/allowing-only-alphanumeric-values/13237018
 const alphaNumCheck = (val) => {
-  var regex = new RegExp("^[a-zA-Z0-9]+$");
+  var regex = new RegExp("^[a-zA-Z0-9 ]+$");
 
   if (regex.test(val)) {
     return val;
