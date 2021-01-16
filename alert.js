@@ -1,4 +1,5 @@
 const storageName = 'crypto-alerts';
+const alertsContainer = document.getElementById('app__left-alerts');
 const addAlertBtn = document.getElementById('add-alert-btn');
 const alertsDisplay = document.getElementById('app__left-alerts-display');
 const alertsModal = document.getElementById('app__left-alerts-modal');
@@ -102,10 +103,9 @@ const addAlert = (name, price) => {
 // https://stackoverflow.com/questions/13236651/allowing-only-alphanumeric-values/13237018
 const alphaNumCheck = (val) => {
   var regex = new RegExp("^[a-zA-Z0-9]+$");
-  var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
 
-  if (regex.test(str)) {
-    return str;
+  if (regex.test(val)) {
+    return val;
   }
 
   return "";
@@ -122,7 +122,7 @@ const loadAlerts = () => {
   const entries = getEntries();
 
   if (entries && entries.length) {
-    // hopefully... XSS prevented with alphanum check on input, I needed HTMl output for remove btn
+    // hopefully... XSS prevented with alphanum check on input, I needed HTML output for remove btn
     alertsDisplay.innerHTML = '';
     entries.forEach(entry => {
       alertsDisplay.innerHTML += `<span class="alert-row"><p>${entry.name} $${entry.price.toLocaleString('en')}</p>
@@ -149,3 +149,12 @@ document.addEventListener('click', (e) => {
     loadAlerts();
   }
 });
+
+// this button is to make sure notifications are enabled
+if (Notification.permission !== "granted") {
+  const allowNotificationsBtn = document.getElementById('allow-alerts-btn');
+  allowNotificationsBtn.classList = '';
+  allowNotificationsBtn.addEventListener('click', () => {
+    notify('');
+  });
+}

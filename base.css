@@ -30,3 +30,7 @@ button {
 #app__right {
   width: 40%;
 }
+
+.hidden {
+  display: none;
+}
