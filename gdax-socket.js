@@ -46,16 +46,18 @@ const checkAlert = (price) => {
   const storedValue = localStorage.getItem(storageName);
   const entries = storedValue ? JSON.parse(storedValue) : null;
 
-  entries.forEach((entry, index) => { // full loop but not a huge data set
+  if (entries && entries.length) {
+    entries.forEach((entry, index) => { // full loop but not a huge data set
 
-    if (entry.price ===  parseInt(price.split(',').join(''))) { // this is nasty
-      notify(`BTC price alert $${price}`)
-      entries.splice(index, 1);
-    }
-  });
+      if (entry.price ===  parseInt(price.split(',').join(''))) { // this is nasty
+        notify(`BTC price alert $${price}`)
+        entries.splice(index, 1);
+      }
+    });
 
-  localStorage.setItem(storageName, JSON.stringify(entries));
-  loadAlerts();
+    localStorage.setItem(storageName, JSON.stringify(entries));
+    loadAlerts();
+  }
 };
 
 gdaxSocket.onopen = (event) => {
