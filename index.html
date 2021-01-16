@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css-reset.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="alerts.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div id="app__left">
+      <div id="app__left-alerts">
+        <h2>Alerts</h2>
+        <div id="app__left-alerts-display"></div>
+        <div id="app__left-alerts-modal" class="show">
+          <button type="button" id="alerts-modal-close-btn">x</button>
+          <h2>Specify name of alert and price</h2>
+          <input type="text" placeholder="name" id="alerts-modal-name"/>
+          <input type="number" placeholder="amount" id="alerts-modal-price"/>
+          <button id="alerts-modal-add-btn" type="button">add</button>
+        </div>
+        <button id="add-alert-btn" type="button">add alert</button>
+      </div>
+      <div id="app__left-gains-calc"></div>
+    </div>
+    <div id="app__right">
+      <div id="app__right-ticker-prices"></div>
+    </div>
+  </div>
+  <script src="alert.js"></script>
+  <script src="gains-calc.js"></script>
+  <script src="gdax-socket.js"></script>
+</body>
+</html>

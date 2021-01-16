@@ -1,0 +1,32 @@
+body {
+  padding: 10px;
+}
+
+body * {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* yeah I know ids are bad */
+#app {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#app__left {
+  width: 60%;
+}
+
+#app__right {
+  width: 40%;
+}
