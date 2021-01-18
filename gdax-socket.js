@@ -3,7 +3,7 @@
  * stores into localStorage
  */
 
-const gdaxSocket = new WebSocket("wss://ws-feed.gdax.com");
+let gdaxSocket;
 const subscribeJson = {
   type: "subscribe",
   product_ids: [
@@ -86,15 +86,26 @@ const checkAlert = (price) => {
   }
 };
 
-gdaxSocket.onopen = (event) => {
-  gdaxSocket.send(JSON.stringify(subscribeJson));
-};
+const connectSocket = () => {
+  gdaxSocket = new WebSocket("wss://ws-feed.gdax.com");
 
-gdaxSocket.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  if (data.price) {
-    priceDisplay.innerText = `BTC price $${parseInt(data.price).toLocaleString('en')}`;
+  gdaxSocket.onopen = (event) => {
+    gdaxSocket.send(JSON.stringify(subscribeJson));
+  };
 
-    checkAlert(parseInt(data.price).toLocaleString('en'));
+  gdaxSocket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    if (data.price) {
+      priceDisplay.innerText
+        = `BTC price $${parseInt(data.price).toLocaleString('en')} at ${data.time.split('T')[1].split('.')[0]}`;
+
+      checkAlert(parseInt(data.price).toLocaleString('en'));
+    }
+  };
+
+  gdaxSocket.onclose = () => {
+    connectSocket();
   }
-};
+}
+
+connectSocket();

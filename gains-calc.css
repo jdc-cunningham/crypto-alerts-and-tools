@@ -1,0 +1,15 @@
+#app__left-gains-calc {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+#app__left-gains-calc span {
+  margin-top: 5px;
+}
+
+#app__left-gains-calc button {
+  margin-top: 5px;
+}
