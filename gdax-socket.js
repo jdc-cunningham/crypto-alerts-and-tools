@@ -74,8 +74,8 @@ const checkAlert = (price) => {
   if (entries && entries.length) {
     entries.forEach((entry, index) => { // full loop but not a huge data set
       if (entry.price ===  parseInt(price.split(',').join(''))) { // this is nasty
-        notify(`BTC price alert $${price}`);
-        say(`BTC price alert $${price}`);
+        notify(`BTC price alert $${price} for ${entry.name}`);
+        say(`BTC price alert $${price} for ${entry.name}`);
         activeSayPrice = `BTC price alert $${price}`;
         entries.splice(index, 1);
       }
