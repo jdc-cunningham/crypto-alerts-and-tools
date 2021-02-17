@@ -76,6 +76,7 @@ const addAlert = (name, price) => {
   if (entries && entries.length) {
     if (entries.find(entry => (entry.name === name || entry.price === price))) {
       alert('this alert name or price already exists');
+      return; // stops modal from automatically closing
     } else {
       // repeated code
       entries.push({

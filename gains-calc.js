@@ -1,4 +1,6 @@
-const txFeePercent = 0.005;
+// this "price tier" fee is based on volume traded (reduces over time)
+// more info here: https://help.coinbase.com/en/pro/trading-and-funding/trading-rules-and-fees/fees
+const txFeePercent = 0.0015;
 const upperPrice = document.getElementById('upper-price');
 const lowerPrice = document.getElementById('lower-price');
 const moneyIn = document.getElementById('money-in');
@@ -10,10 +12,10 @@ const validateInputs = () => {
   	alert('Please fill in all fields');
     return false;
   }
-  
-  return true;
 
+  return true;
 }
+
 calcBtn.addEventListener('click', () => {
 	if (!validateInputs()) {
   	return false;
