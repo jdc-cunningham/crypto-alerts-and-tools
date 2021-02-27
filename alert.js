@@ -126,7 +126,7 @@ const loadAlerts = () => {
     // hopefully... XSS prevented with alphanum check on input, I needed HTML output for remove btn
     alertsDisplay.innerHTML = '';
     entries.forEach(entry => {
-      alertsDisplay.innerHTML += `<span class="alert-row"><p>${entry.name} $${entry.price.toLocaleString('en')}</p>
+      alertsDisplay.innerHTML += `<span class="alert-row"><p>$${entry.price.toLocaleString('en')} ${entry.name}</p>
                                   <button type="button" id="${entry.id}" class="alert-remove-btn">remove</button></span>`;
     });
   } else {
