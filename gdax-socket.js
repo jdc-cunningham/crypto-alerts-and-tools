@@ -87,7 +87,7 @@ const checkAlert = (price) => {
 };
 
 const connectSocket = () => {
-  gdaxSocket = new WebSocket("wss://ws-feed.gdax.com");
+  gdaxSocket = new WebSocket("wss://ws-feed.pro.coinbase.com");
 
   gdaxSocket.onopen = (event) => {
     gdaxSocket.send(JSON.stringify(subscribeJson));
